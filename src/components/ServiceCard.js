@@ -14,7 +14,17 @@ export class ServiceCard extends React.PureComponent {
 
 // Start the Timer 
  componentDidMount() {
-    this.timer = setInterval(() => {}, 1000);
+    this.timer = setInterval(() => { 
+        if (this.state.status === "Online") {
+            if ( Math.random() < 0.05 ) {
+                this.setState ({ status : "Offline" })
+            } else {
+                this.setState((prevState) => ({
+                    uptime: prevState.uptime + 1
+                }));
+            }
+        }
+     }, 1000);
     }
 
 // Stop the Timer
