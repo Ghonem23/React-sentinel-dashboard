@@ -12,6 +12,16 @@ export class ServiceCard extends React.PureComponent {
     };
   }
 
+// Start the Timer 
+ componentDidMount() {
+    this.timer = setInterval(() => {}, 1000);
+    }
+
+// Stop the Timer
+    componentWillUnmount() {
+        clearInterval(this.timer);
+    }
+
   render() {
         return (
         <div className="service-card">  
